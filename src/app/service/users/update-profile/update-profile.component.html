@@ -1,0 +1,73 @@
+
+<aside style="background-color: black;">
+  
+    <div id="most-popular-wrapper">
+      <div class="logo">
+        <a href="#">
+          <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="Logo" />
+        </a>
+      </div>
+     
+        <form [formGroup]="profileForm" class="form-container">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>Profile Information</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="full-width">
+                      <input formControlName="firstName" matInput placeholder="First name" required (keypress)="OnlyAlbhabets($event)">
+                      <mat-error *ngIf="profileForm.get('firstName')?.hasError('required')">
+                        First Name is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="full-width">
+                      <input  formControlName="lastName" matInput placeholder="Last name" required (keypress)="OnlyAlbhabets($event)">
+                      <mat-error *ngIf="profileForm.get('lastName')?.hasError('required')">
+                        Last Name is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                    
+                  
+                  <div class="col-md-6 top-padding">
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Select DOB</mat-label>
+                            <input  formControlName="dateOfBirth" matInput [matDatepicker]="picker" required>
+                            <mat-error *ngIf="profileForm.get('dateOfBirth')?.hasError('required')">
+                              Date of Birth is required
+                            </mat-error>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>                  
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-md-12">
+                        <mat-radio-group  formControlName="gender" class="margin-left" required>
+                            <mat-radio-button value="male"> Male </mat-radio-button>
+                            <mat-radio-button value="female"> Female </mat-radio-button>
+                        </mat-radio-group>
+                        <mat-error *ngIf="profileForm.get('gender')?.hasError('required')">
+                            Gender is required
+                          </mat-error>
+                    </div>
+                </div> -->
+              </mat-card-content>
+              <mat-card-actions>
+                <button (click)="saveForm()" mat-raised-button color="primary"  [disabled]="profileForm.invalid">Save</button>
+                <div *ngIf="message">
+                  <p class="success-message" style="margin-left: 10px;">Details saved successfully!</p>
+                </div>
+              </mat-card-actions>
+              
+            </mat-card>
+          </form>
+          
+    </div>
+</aside>

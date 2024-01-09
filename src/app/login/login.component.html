@@ -1,0 +1,127 @@
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #c4c3ca;
+      background-image: url('../../assets/images/download.jpeg'); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+<body>
+  <img class="main-logo" src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png">
+
+
+   
+   
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/TajOfipFZDw?si=w4jiAZS73nURJx7N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+        <!-- <iframe style="background-color: transparent;" width="700" height="350" src="../../assets/images/home.mp4?loop=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; picture-in-picture;" allowFullscreen></iframe> -->
+     
+  
+        <div class="section">
+
+          <div class="container">
+            <div class="row full-height justify-content-center">
+              <div class="col-12 text-center align-self-center py-5">
+                <div class="section pb-5 pt-5 pt-sm-2 text-center" >
+                        <input type="checkbox" id="toggleForms" [(ngModel)]="isFlipped" />
+        <label for="toggleForms">Switch to {{ isFlipped ? 'Login' : 'Sign Up' }}</label>
+                  <div class="card-3d-wrap mx-auto">
+                    <div class="card-3d-wrapper" [ngClass]="{'flipped':isFlipped}">
+                      <div class="card-front">
+                        <div class="center-wrap">
+                          <form #loginForm="ngForm" *ngIf="!isFlipped">
+                          <div class="section text-center">
+                            <!-- <app-facebooklogin></app-facebooklogin>
+                            <app-googlelogin></app-googlelogin> -->
+                            <!-- <button  class="Button-sc-y0gtbx-0 jJyUnh sc-iAEawV hSZCOi"(click)="signInGoogle()" ><span  class="sc-eeMvmM cbbRGR"><i class="fa fa-google fa-2x"></i></span><span>Continue with Google</span></button>
+                            <button style="margin-top: 5%;" class="Button-sc-y0gtbx-0 jJyUnh sc-iAEawV hSZCOi"(click)="signInFacebook()" ><span  class="sc-eeMvmM cbbRGR"><i class="fa fa-facebook-official fa-2x"></i></span><span>Continue with Facebook</span></button> -->
+                            <h4 class="mb-4 pb-3">Log In</h4>
+                            <div class="form-group">
+                              <input type="username" name="txt" class="form-style" placeholder="Your UserName" required [(ngModel)]="loginUsername" autocomplete="off">
+                              <i class="input-icon uil uil-at"></i>
+                            </div>	
+                            <div class="form-group mt-2">
+                              <i id ="toggleIcon" [ngClass]="{'fa-eye': !passwordVisible, 'fa-eye-slash': passwordVisible}" class="fa" aria-hidden="true" (click)="togglePasswordVisibility()"></i>
+                              <input type="{{ passwordVisible ? 'text' : 'password' }}" name="pswd"  class="form-style" placeholder="Your Password" [(ngModel)]="loginPassword" autocomplete="off" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                              <i class="input-icon uil uil-lock-alt" ></i>
+                            </div>
+                            <div *ngIf="loginForm.invalid && (loginForm.dirty || loginForm.touched); else removeErrorLogin" class="error-message">
+                              <p class="error-message">Please fill out all required fields.</p>
+                            </div>
+                            <ng-template #removeErrorLogin>
+                            <div *ngIf="errorMessage" class="error-message">
+                              <p class="error-message">Please enter a valid User Name and password.</p>
+                            </div>
+                          </ng-template>
+                            <button (click)="login()" [disabled]="loginForm.invalid" class="btn mt-4">Login</button>
+                              </div>
+                            </form>
+                            </div>
+                          </div>
+                         
+                      <div class="card-back">
+                        <div class="center-wrap">
+                          <form #signupForm="ngForm" *ngIf="isFlipped">
+                          <div class="section text-center">
+                            <h4 class="mb-4 pb-3">Sign Up</h4>
+                            <div class="form-group">
+                              <input type="text" name="txt" class="form-style" placeholder="User name"  [(ngModel)]="username" autocomplete="off" required>
+                              <i class="input-icon uil uil-user"></i>
+                            </div>	
+                            <div class="form-group mt-2">
+                              <input type="email" name="logemail" class="form-style" placeholder="Your Email"   [(ngModel)]="email" autocomplete="off" required>
+                              <i class="input-icon uil uil-at"></i>
+                            </div>	
+                            <div class="form-group mt-2">
+                              <i id ="toggleIcon" [ngClass]="{'fa-eye': !passwordVisible, 'fa-eye-slash': passwordVisible}" class="fa" aria-hidden="true" (click)="togglePasswordVisibility()"></i>
+                              <input type="{{ passwordVisible ? 'text' : 'password' }}" name="logpass" class="form-style" placeholder="Your Password"  [(ngModel)]="password" autocomplete="off" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                              <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <div *ngIf="signupForm.invalid && (signupForm.dirty || signupForm.touched); else removeError" class="error-message">
+                              <p class="error-message">Please fill out all required fields.</p>
+                            </div>
+                          <ng-template #removeError>
+                            <div *ngIf="successMessage" class="success-message">
+                              <p class="success-message">Successfully registered.</p>
+                            </div>
+                          
+                            <div *ngIf="errorMessage2" class="error-message">
+                              <p class="error-message">{{errorMessage2}}</p>
+                            </div>
+                          </ng-template>
+                            <button (click)="signUp()" [disabled]="signupForm.invalid" class="btn mt-4">Sign up</button>
+                            
+                              </div>
+                            </form>
+                            </div>
+                            
+        
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+  
+
+  <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/GZQK5qzfK4o?si=EuPKcXujd3FCCxom&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+
+
+</body>
+
+

@@ -1,0 +1,35 @@
+.jJyUnh {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: var(--font-family,CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
+    background-color: transparent;
+    border-radius: 500px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    touch-action: manipulation;
+    transition-duration: 33ms;
+    transition-property: background-color, border-color, color, box-shadow, filter, transform;
+    user-select: none;
+    vertical-align: middle;
+    transform: translate3d(0px, 0px, 0px);
+    padding-block: 7px;
+    padding-inline: 31px;
+    position: relative;
+    border: 1px solid var(--essential-subdued,black);
+    color: var(--text-base,white);
+    min-block-size: 48px;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    /* -webkit-padding-start: 5px; */
+    justify-content: start;
+    inline-size: 100%;
+  
+  }
+  .cbbRGR{
+    padding-right: 8px;
+  }

@@ -1,0 +1,91 @@
+<aside>
+    <div id="most-popular-wrapper" *ngIf="spotifyPlaylist">
+        <div class="nine">
+            <h1>{{spotifyPlaylist.name}}<span>{{spotifyPlaylist.tracks.items.length}} Songs</span></h1>
+        </div>
+        <div class="song-list-wrapper" style="padding-top: 0;">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                    <th mat-header-cell *matHeaderCellDef style="font-size: 20px; font-weight: 400;color: aliceblue; background-color: #080808 "> S.No</th>
+                    <td mat-cell *matCellDef="let element; let i = index" style="font-size: 16px; font-weight: 400;color: aliceblue; background-color: #080808 "> {{i + 1}} </td>
+                </ng-container>
+
+
+                <!-- Image Column -->
+                <ng-container matColumnDef="image">
+                    <th mat-header-cell *matHeaderCellDef style="font-size: 20px; font-weight: 400;color: aliceblue; background-color: #080808 "> Image </th>
+                    <td mat-cell *matCellDef="let element" style="font-size: 16px;color: aliceblue; background-color: #080808 ">
+                        <img [src]="element.track.album.images[0].url" alt="artist-img" width="70" height="70">
+                    </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <!-- Name and Artist Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef style="font-size: 20px; font-weight: 400;color: aliceblue; background-color: #080808  "> Title </th>
+                    <td mat-cell *matCellDef="let element" style="font-size: 16px; font-weight: 400;color: aliceblue; background-color: #080808 ">
+                        {{ element.track.name }} - {{ element.track.artists[0].name }}
+                    </td>
+                </ng-container>
+
+
+                <!-- Artist Column -->
+                <ng-container matColumnDef="artist">
+                    <th mat-header-cell *matHeaderCellDef style="font-size: 20px; font-weight: 400;color: aliceblue; background-color: #080808 "> Album </th>
+                    <td mat-cell *matCellDef="let element" style="font-size: 16px; font-weight: 400;color: aliceblue; background-color: #080808 "> {{element.track.album.name}} </td>
+                </ng-container>
+
+
+
+                <!-- Play Song on Spotify -->
+                <ng-container matColumnDef="play">
+                    <th mat-header-cell *matHeaderCellDef style="font-size: 20px; font-weight: 400;color: aliceblue; background-color: #080808 "> Play </th>
+                    <td mat-cell *matCellDef="let element" style="font-size: 16px; font-weight: 400;color: aliceblue; background-color: #080808 ">
+                    <div *ngIf="element.track.preview_url">
+                        <i class="fas fa-play" style="transition: transform 1s ease; cursor: pointer;color: rgb(243, 238, 238)"
+                    (click)="openPlayDialog(element.track)"></i>
+                    </div>
+                    </td>
+                </ng-container>
+
+                <!-- Action Column -->
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef style="font-size: 20px; font-weight: 400; color: aliceblue; background-color: #080808  "> Action </th>
+                    <td mat-cell *matCellDef="let element" style="font-size: 16px; font-weight: 400; color: aliceblue; background-color: #080808  ">
+                        <div *ngIf="favoriteIsExists(element.track.id)">
+                           
+                        <i (click)="deleteTrackToWishList(element.track.id)" class="fa fa-heart" aria-hidden="false" style="
+                        transition: transform 1s ease; cursor: pointer;color: aliceblue;"></i>
+                    </div>
+                    <i (click)="toggleHeartState(element.track.id)" class="fa fa-heart red style" aria-hidden="false"
+                    [@heartAnimation]="getHeartState(element.track.id)" style="cursor: pointer;color: aliceblue; "></i>
+                         <!-- <i (click)="saveTrackToWishList(element.track.id)" class="fas fa-heart red" style="color: rgb(255, 49, 70);
+                    transition: transform 1s ease; cursor: pointer;"></i> -->
+                    
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <div *ngIf="isPopupVisible" class="preview">
+                <div class="text">
+                  <h6>Preview of Spotify</h6>
+                  <p>Sign up to get unlimited songs  with no ads. No credit card needed.</p>
+                </div>
+                <div class="button">
+                  <button (click)="goToLoginPage()">Signup/ LogIn</button>
+                </div>
+              </div>
+            
+            <mat-paginator style="background-color:gray; color: white; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);" ></mat-paginator>
+         
+            <!-- <app-top-button></app-top-button> -->
+        </div>
+      
+    </div>
+</aside>
+
+

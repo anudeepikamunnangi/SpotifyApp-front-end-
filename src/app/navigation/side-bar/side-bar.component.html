@@ -1,0 +1,71 @@
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<!-- <button class="openNavButton" (click)="openNav()">☰ Open Sidebar</button> -->
+
+<div class="sidebar" id ="mySidebar">
+
+  <div class="logo">
+    <a href="#">
+      <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="Logo" />
+    </a>
+    <!-- <div class="buttonclose" >    <button style="color: white; background-color: white;"  class="openNavButtonClose" (click)="openNav()"><i class="fa fa-times" aria-hidden="true"></i></button>
+    </div> -->
+    <!-- <button style="color: white; background-color: white;"  class="openNavButtonClose" (click)="openNav()"><i class="fa fa-times" aria-hidden="true"></i></button> -->
+    <!-- <button style="color: white; background-color:black;z-index: 10!important;"  class="openNavButtonClose" (click)="openNav()"><i class="fa fa-times" aria-hidden="true"></i></button> -->
+
+  </div>
+
+  <div class="navigation">
+
+    <ul>
+      <li *ngIf ="username!==null && username!==undefined">
+        <a href="profile">
+          <span class="fa fa-user-o"></span>
+          <span>{{username}}</span>
+        </a>
+      </li>
+
+      <li *ngIf ="username===null||username===undefined">
+        <a href="login">
+          <span class="fa fa-user-o"></span>
+          <span>LogIn/SignUp</span>
+        </a>
+      </li>
+      <li>
+        <a href="home">
+          <span class="fa fa-home"></span>
+          <span>Home</span>
+        </a>
+      </li>
+
+      <!-- <li>
+        <a href="search">
+          <span class="fa fa-search"></span>
+          <span>Search</span>
+        </a>
+      </li> -->
+      <li>
+        <a href="top-hits-playlist">
+          <span class="fa fas fa-play"></span>
+          <span>Trending Playlist</span>
+        </a>
+      </li>
+
+      <li >
+        <a href="favorites" >
+          <span class="fa fas fa-heart"></span>
+          <span>Liked Songs</span>
+        </a>
+      </li>
+      <li>
+        <a href="logout">
+          <span class="fa fas fa-sign-out"></span>
+          <span>Log Out</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+export const API_URL = "http://localhost:9090/api/v1.0/"
+export const API_URL_AUTH = API_URL+"auth"
+export const API_URL_MUSIC = API_URL+"music"
+export const API_URL_WISHLIST = API_URL+"wishlist"
+export const API_URL_USERPROFILE = API_URL+"userProfile"

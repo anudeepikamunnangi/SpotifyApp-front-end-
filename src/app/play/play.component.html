@@ -1,0 +1,30 @@
+<div *ngIf="track">
+  <!-- <body > -->
+  
+      <!-- <div id="boxes"> -->
+          <div id="player02" class="player horizontal">
+  
+              <div class="wrapper">
+              <!-- <div class="close-button" ">X</div> -->
+  
+                  <div class="info-wrapper">
+                      <img [src]="track.album.images[0].url" alt="LogoMusicImage">
+                      <div class="info">
+                      <Marquee>  <h1>{{track.name}}<br>{{track.artists[0].name}}</h1> 
+                      <p>{{track.album.name}}</p></Marquee>
+                      </div>
+                  </div>
+  
+                  <div class="track-time">
+  
+                      <audio controls *ngIf="track.preview_url" autoplay [controlsList]="'nodownload'">
+                          <source [src]="track.preview_url" type="audio/mpeg">
+                          <a>Your browser does not support the audio tag.</a>
+                      </audio>
+  
+                  </div>
+              </div>
+          </div>
+      <!-- </div> -->
+  <!-- </body> -->
+  </div>

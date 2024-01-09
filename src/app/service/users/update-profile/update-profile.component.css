@@ -1,0 +1,47 @@
+aside {
+    width: 95%;
+    /* Adjust the width as needed */
+    background-color:#000;
+    /* Adjust the background color */
+    /* padding: 10px; */
+    left: 0;
+    
+}
+
+/* background-image:{ url('../../assets/images/download.jpeg');} */
+/* .mat-mdc-card {
+    f
+} */
+.logo img {
+    width: 170px;
+   position:unset;
+   padding: 20px;
+  }
+
+#most-popular-wrapper {
+    background-color: #000;
+    /* Adjust the background color */
+    /* padding: 10px; */
+    /* border: 1px solid #ccc; */
+    /* Add borders or adjust as needed */
+}
+
+.full-width{
+    width: 100%;
+}
+
+.top-padding{
+    padding-top: 3px;
+}
+
+.margin-left mat-radio-button:not(:first-child){
+    margin-left:10px;
+}
+
+.form-container{
+    /* margin: 100px; */
+    margin-top: 2%;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: #000;
+}
